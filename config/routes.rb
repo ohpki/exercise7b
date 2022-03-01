@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root :to => 'homes#top'
   get "home/about" => "homes#about"
   resources :users, only: [:index,:show,:edit,:update] do
+    get "search", to: "users#search"
     member do
     get :follows, :followers
   end
